@@ -1,8 +1,5 @@
 package com.daprlabs.aaron.swipedeck;
 
-import com.daprlabs.aaron.swipedeck.Utility.Deck;
-import com.daprlabs.aaron.swipedeck.Utility.SwipeCallback;
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -17,6 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.FrameLayout;
+
+import com.daprlabs.aaron.swipedeck.Utility.Deck;
+import com.daprlabs.aaron.swipedeck.Utility.SwipeCallback;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,7 @@ public class SwipeDeck extends FrameLayout {
 
     private Adapter mAdapter;
     private DataSetObserver observer;
-    private Deck<CardContainer> deck;
+    public Deck<CardContainer> deck;
     private SwipeDeckCallback callback;
     private ArrayList<CardContainer> buffer = new ArrayList<>();
 
