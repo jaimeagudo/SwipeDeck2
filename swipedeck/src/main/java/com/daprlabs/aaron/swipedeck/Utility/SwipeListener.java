@@ -1,7 +1,5 @@
 package com.daprlabs.aaron.swipedeck.Utility;
 
-import com.daprlabs.aaron.swipedeck.SwipeDeck;
-
 import android.animation.Animator;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -9,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.view.animation.OvershootInterpolator;
+
+import com.daprlabs.aaron.swipedeck.SwipeDeck;
 
 /**
  * Created by aaron on 4/12/2015.
@@ -24,7 +24,7 @@ public class SwipeListener implements View.OnTouchListener {
     private float initialXPress;
     private float initialYPress;
     private ViewGroup parent;
-    private int paddingLeft;
+
 
     private View card;
     SwipeCallback callback;
@@ -41,7 +41,6 @@ public class SwipeListener implements View.OnTouchListener {
         this.parent = parent;
         this.ROTATION_DEGREES = rotation;
         this.OPACITY_END = opacityEnd;
-        this.paddingLeft = parent.getPaddingLeft();
     }
 
     private boolean click = true;
@@ -125,8 +124,8 @@ public class SwipeListener implements View.OnTouchListener {
 
                 if (rightView != null && leftView != null) {
                     //set alpha of left and right image
-                    float alpha = (((posX - paddingLeft) / (parentWidth * OPACITY_END)));
-                    //float alpha = (((posX - paddingLeft) / parentWidth) * ALPHA_MAGNITUDE );
+                    float alpha = (((posX - parent.getPaddingLeft()) / (parent.getWidth() * OPACITY_END)));
+                    //float alpha = (((posX - parent.getPaddingLeft()) / parent.getWidth()) * ALPHA_MAGNITUDE );
                     //Log.i("alpha: ", Float.toString(alpha));
                     rightView.setAlpha(alpha);
                     leftView.setAlpha(-alpha);
