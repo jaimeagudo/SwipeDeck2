@@ -24,8 +24,6 @@ public class SwipeListener implements View.OnTouchListener {
     private float initialXPress;
     private float initialYPress;
     private ViewGroup parent;
-
-
     private View card;
     SwipeCallback callback;
     private boolean deactivated;

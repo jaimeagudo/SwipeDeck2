@@ -167,7 +167,7 @@ Now we add a swipe deck to our layout:
         android:padding="50dp"
         swipedeck:max_visible="3"
         swipedeck:card_spacing="15dp"
-        swipedeck:swipe_enabled="false"/>
+        swipedeck:swipe_enabled="true"/>
 
     <Button
         android:id="@+id/button"
