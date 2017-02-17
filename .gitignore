@@ -7,3 +7,10 @@
 .DS_Store
 /build
 /captures
+
+
+buck-out
+.buckd
+.okbuck
+.buckconfig.local
+**/BUCK
