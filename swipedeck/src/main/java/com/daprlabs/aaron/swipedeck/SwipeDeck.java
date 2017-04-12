@@ -91,7 +91,7 @@ public class SwipeDeck extends FrameLayout {
                 }
                 container.cleanupAndRemoveView();
                 //pull in the next view (if available)
-                addNextView();
+                addNextViewFromAdapterIfAvailable();
                 renderDeck();
             }
 
@@ -153,7 +153,7 @@ public class SwipeDeck extends FrameLayout {
                 //only perform action if there are less cards on screen than NUMBER_OF_CARDS
                 if (deckSize < NUMBER_OF_SIMULTANEOUS_CARDS) {
                     for (int i = deckSize; i < NUMBER_OF_SIMULTANEOUS_CARDS; ++i) {
-                        addNextView();
+                        addNextViewFromAdapterIfAvailable();
                     }
                 }
                 //if the adapter has been emptied empty the view and reset adapterIndex
@@ -195,11 +195,11 @@ public class SwipeDeck extends FrameLayout {
         //stop when you get to for cards or the end of the adapter
         int deckSize = deck.size();
         for (int i = deckSize; i < NUMBER_OF_SIMULTANEOUS_CARDS; ++i) {
-            addNextView();
+            addNextViewFromAdapterIfAvailable();
         }
     }
 
-    private void addNextView() {
+    private void addNextViewFromAdapterIfAvailable() {
         if (adapterIndex < mAdapter.getCount()) {
             View newBottomChild = mAdapter.getView(adapterIndex, null, this);
             newBottomChild.setLayerType(View.LAYER_TYPE_HARDWARE, null);
